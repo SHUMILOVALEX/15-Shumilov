@@ -34,8 +34,40 @@ int main() {
         }
     }
 
-    if (stk.empty()) {
+   if (stk.empty()) {
         cerr << "Yes" << endl;
     }
     else cout << "No";
+}
+15.2
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <string>
+#include <unordered_map>
+#include <sstream>
+using namespace std;
+
+int main() {
+    ifstream file("C:/Users/1/Desktop/miaga.txt");
+    if (!file.is_open()) {
+        cerr << "Не удалось открыть файл!" << endl;
+        return 1;
+    }
+
+unordered_map<string, int> wordCount;
+    string line;
+        while (getline(file, line)) {
+        stringstream ss(line);
+        string word;
+        
+while (ss >> word) {
+    wordCount[word]++;
+        }
+    }
+    for (const auto& pair : wordCount) {
+        cout << "WORDS: " << pair.first << " - " << pair.second << " kol-vo" << endl;
+    }
+    file.close();
+    return 0;
 }
