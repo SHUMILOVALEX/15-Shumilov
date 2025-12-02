@@ -71,3 +71,16 @@ while (ss >> word) {
     file.close();
     return 0;
 }
+Task 15.3
+#include <string_view>
+#include <iostream>
+using namespace std;
+
+bool NextToken(string_view &sv, const char delimiter, string_view &token) {
+    if (sv.empty()) return false;
+    if (sv.find(delimiter)) {
+        token = sv.substr(0, sv.find_first_of(delimiter));
+        sv.remove_prefix(token.length() + 1);
+        return true;
+    }
+    }
