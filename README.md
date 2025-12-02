@@ -1,3 +1,15 @@
+Task 14.1
+#include <vector>
+
+template <typename T>
+void Duplicate(std::vector<T>& v) {
+    size_t originalSize = v.size();  // сохраняем исходный размер
+    v.reserve(originalSize * 2);     // резервируем место для оптимизации
+    
+  for (size_t i = 0; i < originalSize; ++i) {
+        v.push_back(v[i]);  // добавляем элементы по индексу
+    }
+}
 Task 15.1
 #include <iostream>
 #include <vector>
